@@ -3,4 +3,4 @@ Trabalho Final da disciplina Fundamentos Teóricos da Computação
 
 # Integrantes do grupo:
 Pedro d'Angelis Otero		- 72400838
-David Luigi Araujo Amaral	- 72401060
+Davi Luigi Araujo Amaral	- 72401060
