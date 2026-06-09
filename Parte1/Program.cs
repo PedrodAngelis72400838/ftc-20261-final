@@ -9,10 +9,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.OutputEncoding = Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        string arquivoJson = args.Length > 0 ? args[0] : "afd.json";
-        string arquivoEntradas = args.Length > 1 ? args[1] : "entradas.txt";
+        string arquivoJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "afd.json");
+        string arquivoEntradas = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "entradas.txt");
 
         Console.WriteLine("==================================================");
         Console.WriteLine("              PARTE 1 - EXECUTOR AFD              ");
