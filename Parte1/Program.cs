@@ -21,9 +21,9 @@ class Program
         try
         {
             // Carrega JSON e constrói o autômato
-            Console.WriteLine($"\n[+] Lendo configuração: '{arquivoJson}'...");
+            Console.WriteLine($"\n-Lendo configuração: '{arquivoJson}'...");
             AFD afd = AFD.CarregarDeJson(arquivoJson);
-            Console.WriteLine("[✓] Estrutura do autômato carregada com sucesso.");
+            Console.WriteLine("-Estrutura do autômato carregada com sucesso.");
 
             // Imprime diagrama de transicoes
             afd.ExibirDiagrama();
@@ -32,11 +32,11 @@ class Program
             // Processamento por cadeia das palavras de teste
             if (!File.Exists(arquivoEntradas))
             {
-                Console.WriteLine($"[!] Erro: O arquivo de cadeias '{arquivoEntradas}' não existe na pasta de execução.");
+                Console.WriteLine($"-Erro: O arquivo de cadeias '{arquivoEntradas}' não existe na pasta de execução.");
                 return;
             }
 
-            Console.WriteLine($"[+] Processando cadeias de: '{arquivoEntradas}'\n");
+            Console.WriteLine($"-Processando cadeias de: '{arquivoEntradas}'\n");
             string[] linhas = File.ReadAllLines(arquivoEntradas);
 
             foreach (string linha in linhas)
@@ -47,7 +47,7 @@ class Program
                 bool aceita = afd.ProcessarCadeia(cadeia, out List<string> rastro);
 
                 Console.WriteLine($"Cadeia:    {visualizacao}");
-                Console.WriteLine($"Rastro:    {string.Join(" ➔ ", rastro)}");
+                Console.WriteLine($"Rastro:    {string.Join(" -> ", rastro)}");
                 Console.WriteLine($"Resultado: {(aceita ? "ACEITA" : "REJEITA")}");
                 Console.WriteLine(new string('-', 45));
             }
@@ -57,7 +57,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"\n[!] Ocorreu um erro crítico de execução: {ex.Message}");
+            Console.WriteLine($"\n-Ocorreu um erro crítico de execução: {ex.Message}");
         }
     }
 
@@ -71,7 +71,7 @@ class Program
         Console.WriteLine("\n--- Modo Interativo (Digite 'sair' para encerrar) ---");
         while (true)
         {
-            Console.Write("\nDigite a cadeia de entrada ➔ ");
+            Console.Write("\nDigite a cadeia de entrada -> ");
             string? entrada = Console.ReadLine();
 
             if (entrada == null || entrada.Equals("sair", StringComparison.OrdinalIgnoreCase))
@@ -83,11 +83,11 @@ class Program
             bool aceita = afd.ProcessarCadeia(cadeia, out List<string> rastro);
 
             Console.WriteLine($"  Cadeia informada: {exibicao}");
-            Console.WriteLine($"  Caminho dos estados: {string.Join(" ➔ ", rastro)}");
-            Console.WriteLine($"  Veredito final:   {(aceita ? "✓ ACEITA" : "✕ REJEITA")}");
+            Console.WriteLine($"  Caminho dos estados: {string.Join(" -> ", rastro)}");
+            Console.WriteLine($"  Veredito final:   {(aceita ? "ACEITA" : "REJEITA")}");
         }
 
-        Console.WriteLine("\n[+] Parte 1 concluída com sucesso! Pressione qualquer tecla para sair.");
+        Console.WriteLine("\n-Parte 1 concluída com sucesso! Pressione qualquer tecla para sair.");
         Console.ReadKey();
     }
 }
