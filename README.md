@@ -29,7 +29,6 @@ Davi Luigi Araujo Amaral	- 72401060
     2. Navegar até o diretório 'Parte1': <br> 
   </p> 
   
-      bash 
       cd Parte1 
       dotnet run 
 </div>
@@ -40,7 +39,6 @@ Davi Luigi Araujo Amaral	- 72401060
     2. Navegar até o diretório 'Parte2': <br> 
   </p> 
   
-      bash 
       cd Parte2 
       dotnet run 
 </div>
@@ -51,7 +49,6 @@ Davi Luigi Araujo Amaral	- 72401060
     2. Navegar até o diretório 'Parte3': <br> 
   </p> 
   
-      bash 
       cd Parte3 
       dotnet run 
 </div>
